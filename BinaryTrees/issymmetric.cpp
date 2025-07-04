@@ -25,12 +25,6 @@ public:
 };
 
 int main() {
-    // Sample symmetric tree:
-    //        1
-    //       / \
-    //      2   2
-    //     / \ / \
-    //    3  4 4  3
 
     TreeNode* root = new TreeNode(1);
     root->left = new TreeNode(2, new TreeNode(3), new TreeNode(4));
