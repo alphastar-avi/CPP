@@ -41,10 +41,26 @@ int size(node* head){
     return cnt;
 }
 
+bool search(node* head, int x){
+    node* temp = head;
+    while(temp){
+    if(temp->data == x) return true;
+    temp = temp->next;
+    }
+    return false;
+
+}
+
 int main(){
 vector<int> nums={2,3,4,5,6,7,8};
 node* head = CreateNodeFromArray(nums);
 trav(head);
+cout << endl;
+
 size(head);
+cout << endl;
+
+if(search(head,43)) cout << "true";
+else cout << "false";
 
 }
