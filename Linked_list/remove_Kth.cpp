@@ -30,36 +30,37 @@ void print(node* head){
     }
 }
 
-bool search(node* head, int x){
-    node* temp = head;
-    while(temp){
-        if(temp->data == x){
-            return true;
-        }
-        temp=temp->next;
+node* kthElem(node* head,int x){
+    if(x==1){
+        node* temp = head;
+        head = head->next;
+        delete temp;
+        return head;
     }
-    return false;
+    int count=0;
+    node* temp = head;
+    node* prev = nullptr;
+    while(temp){
+        count++;
+        if(count==x){
+        prev->next = prev->next->next;
+        delete temp;
+        break;
+    }
+    prev = temp;
+    temp = temp->next;
+    }
+    return head;
 }
 
-void size(node* head){
-    node* temp = head;
-    int x=0;
-    while(temp){
-        x++;
-        temp=temp->next;
-    }
-    cout << x;
-}
 
 int main(){
     vector<int> nums={1,2,3,4,5,6,7};
     node* head = arrToLink(nums);
-    print(head);
-    cout << endl;
-    cout << search(head,4);
-    cout<<endl;
-    size(head);
-    
+    int x;
+    cin >> x;
+    node* rm = kthElem(head,x);
 
-    
+    print(rm);
+
 }
