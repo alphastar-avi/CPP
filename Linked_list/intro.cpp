@@ -34,7 +34,6 @@ int size(node* head){
     node* temp = head;
     int cnt=0;
     while(temp){
-        cout << temp->data << ",";
         temp = temp->next;
         cnt++;
     }
@@ -64,3 +63,8 @@ if(search(head,43)) cout << "true";
 else cout << "false";
 
 }
+
+
+
+
+
