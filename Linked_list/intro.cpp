@@ -50,10 +50,34 @@ bool search(node* head, int x){
 
 }
 
+node* delHead(node* head){
+    if(head == nullptr) return head;
+    node* move = head;
+    node* temp = move;
+    move = temp->next;
+    delete temp;
+    return move;
+
+}
+
+node* deltail(node* head){
+    if(!head || !head->next) return head;
+    node* temp = head;
+    while(temp->next->next != nullptr){
+        temp=temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+    return head;
+}
+
 int main(){
 vector<int> nums={2,3,4,5,6,7,8};
 node* head = CreateNodeFromArray(nums);
-trav(head);
+node* notail = deltail(head);
+// node* noHead = delHead(head);
+
+trav(notail);
 cout << endl;
 
 size(head);
