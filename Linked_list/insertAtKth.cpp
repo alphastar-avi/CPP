@@ -45,9 +45,13 @@ node* insertlink(node* head, int val,int k){
     while(temp){
         cnt++;
         if(cnt==(k-1)){
-            node* x = new node(val,temp)
+            node* x = new node(val,temp->next);
+            temp->next = x;
+            break;
         }
+        temp = temp->next;
     }
+    return head;
 }
 
 
