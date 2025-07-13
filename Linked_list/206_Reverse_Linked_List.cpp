@@ -38,7 +38,9 @@ ListNode* reverseListIterative(ListNode* head) {
 //Recrusive
 
 ListNode* reverseListRecursive(ListNode* head) {
+
     if (!head || !head->next) return head;
+    
     ListNode* newHead = reverseListRecursive(head->next);
     head->next->next = head;
     head->next = nullptr;
