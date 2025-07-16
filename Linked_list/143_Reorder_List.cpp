@@ -19,6 +19,7 @@ public:
         slow = slow->next;
         fast = fast->next->next;
     }
+     slow->next = nullptr;
 
     //rev
     ListNode* curr = slow->next;
@@ -29,8 +30,7 @@ public:
         prev = curr;
         curr = move;
     }
-    slow->next = nullptr;
-
+   
     //merge
     ListNode* first = head;
     ListNode* second = prev;
