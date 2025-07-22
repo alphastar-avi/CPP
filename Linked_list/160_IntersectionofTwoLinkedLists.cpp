@@ -16,6 +16,42 @@ public:
     }
 };
 
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+    ListNode* h1 = headA;
+    ListNode* h2 = headb;
+    int c1=0,c2=0;
+    while(h1){
+        c1++;
+        h1=h1->next;
+    }
+    while(h2){
+        c2++;
+        h2=h1->next;
+    }
+    if(c2>c1){
+    return intersection(headA,headB,c2-c1);
+    }
+    else return intersection(headB,headA,c1-c2);
+    }
+
+    ListNode* intersection(ListNode* small, ListNode* big, int d){
+        while(d){
+            d--;
+            big=big->next;
+        }
+
+        while(small && big){
+            if(small==big){
+                return small      
+            }
+            small = small->next;
+            big = big->next;
+        }
+        return nullptr;
+    }
+};
 
 
 class Solution {
