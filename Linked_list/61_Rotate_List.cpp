@@ -25,3 +25,29 @@ public:
 
     }
 };   
+
+class Solution {
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (!head || !head->next || k == 0) return head;
+
+        vector<ListNode*> list;
+        ListNode* temp = head;
+        while (temp) {
+            list.push_back(temp);
+            temp = temp->next;
+        }
+
+        int n = list.size();
+        k = k % n;
+        if (k == 0) return head;
+        
+        std::rotate(list.begin(), list.begin() + (n - k), list.end());
+
+        for (int i = 0; i < n - 1; i++) {
+            list[i]->next = list[i + 1];
+        }
+        list.back()->next = nullptr;
+        return list[0];
+    }
+};
