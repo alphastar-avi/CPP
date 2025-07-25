@@ -1,4 +1,50 @@
+class Solution {
+public:
 
+ListNode* findKthNode(ListNode* temp, int k){
+    k--;
+    while( temp && k>0){
+        temp=temp->next;
+        k--;
+    }
+    return temp;
+}
+
+void reverseLL(ListNode* head){
+    ListNode* temp = head;
+    ListNode* prev = nullptr;
+    while(temp){
+        ListNode* move = temp->next;
+        temp->next = prev;
+        prev = temp;
+       temp = move;
+    }
+}
+    //Main
+    ListNode* reverseKGroup(ListNode* head, int k) {
+    ListNode* temp = head;
+    ListNode* prevLast = nullptr;
+    while(temp){
+        ListNode* KthNode = findKthNode(temp,k);
+        if(KthNode == nullptr){
+            if(prevLast) prevLast->next = temp;
+            break;
+        }
+        ListNode* nextNode = KthNode->next;
+        KthNode->next = nullptr;
+        reverseLL(temp);
+        if(temp == head){
+            head = KthNode;
+        }
+        else{
+            prevLast->next = KthNode;
+        }
+        prevLast = temp;
+        temp = nextNode;
+    }
+    return head;
+    }
+};
 
 // using vector O(n), O(n);
 class Solution {
