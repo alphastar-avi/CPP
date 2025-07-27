@@ -14,7 +14,51 @@ public:
 };
 */
 
+class Solution {
+public:
+    void Insertnode(Node* head){
+        Node* temp = head;
+        while(temp){
+            Node* copy = new Node(temp->val);
+            copy->next = temp->next;
+            temp->next = copy;
+            temp = copy->next;  
+        }
+    }
 
+    void Copyrandom(Node* head){
+        Node* temp = head;
+        while(temp){
+            Node* copynode = temp->next;
+            if(temp->random)
+                copynode->random = temp->random->next;
+            else
+                copynode->random = nullptr;
+            temp = temp->next->next;
+        }
+    }
+
+    Node* Deepcopy(Node* head){
+        Node* temp = head;
+        Node* dummy = new Node(-1);
+        Node* res = dummy;
+
+        while(temp){
+            res->next = temp->next;
+            res = res->next;
+            temp->next = temp->next->next;  
+            temp = temp->next;
+        }
+        return dummy->next;
+    }
+
+    Node* copyRandomList(Node* head) {
+        if(!head) return nullptr;
+        Insertnode(head);
+        Copyrandom(head);
+        return Deepcopy(head);
+    }
+};
 
 
 class Solution {
