@@ -5,6 +5,17 @@ public:
     }
 };
 
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n==0) return false;
+        if(n%2 != 0){
+            return n==1;
+        }
+        return isPowerOfTwo(n/2);
+    }
+};
+
 // I wish the poster for the n&(n-1) trick gave a more intuitive reason for why it works. This is my reasoning:
 
 // At a power of 2, we only have one bit set to 1 at its respective decimal place (e.g. 1000).
