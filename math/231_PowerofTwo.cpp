@@ -1,17 +1,9 @@
 class Solution {
 public:
-    bool isPowerOfThree(int n) {
-        if(n<=0) return false;
-        return 1162261467%n==0;
-    // long long res=1;
-    // while(res<n){
-    //     res *= 3;
-    // }
-    // return res==n;
+    bool isPowerOfTwo(int n) {
+        return n > 0 && (n & (n - 1)) == 0;
     }
 };
-
-
 
 // I wish the poster for the n&(n-1) trick gave a more intuitive reason for why it works. This is my reasoning:
 
@@ -27,4 +19,6 @@ public:
 // 0111
 // 1000
 
-// Remember how the power of 2 is the special case where adding 1 results in us moving to the next decimal place (i.e. 0111 + 1 = 1000)? Since every other case doesn't result in that, there is at least the current power of 2's 1 bit overlapping with whatever the number is (i.e. we're at 0100, 0101 will always share the 0100 bit. The only time the 0100 bit becomes 0 again is if we go to the next power of 2).
+// Remember how the power of 2 is the special case where adding 1 results in us moving to the next decimal place (i.e. 0111 + 1 = 1000)?
+// Since every other case doesn't result in that, there is at least the current power of 2's 1 bit overlapping with whatever the number is (i.e. we're at 0100, 0101 will always share the 0100 bit.
+// The only time the 0100 bit becomes 0 again is if we go to the next power of 2).
