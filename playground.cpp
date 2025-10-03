@@ -1,48 +1,13 @@
-// // #include<iostream>
-// // #include<vector>
-// // using namespace std;
-
-// // void print(int i, int n){
-// //     cout << i << endl;
-// //     if(i==n) {
-// //         return ;
-// //     }
-
-// // print(i+1,n);
-
-// // }
-
-// // int main(){
-// //     int x;
-// // cin >> x;
-// // print(1,x);
-
-
-// // }
-// #include <stdio.h>
-// #include <time.h>
-
-// int main() {
-//     clock_t start = clock();
-
-//     // Some heavy work
-//     for (long long i = 0; i < 100000000; i++);
-
-//     clock_t end = clock();
-//     double cpu_time = (double)(end - start) / CLOCKS_PER_SEC;
-
-//     printf("CPU time used: %f seconds\n", cpu_time);
-//     return 0;
-// }
+#include<iostream>
 
 using namespace std;
-
-int helper(int n) {
-    if (n > 5) return 0;
-    cout << n << " ";
-    return helper(n + 1); 
+int fb(int n){
+if(n==1 || n==0){
+    return n;
+}
+return fb(n-1)+fb(n-2);
 }
 
-int main() {
-    helper(1);
+int main(){
+cout << fb(0);
 }
