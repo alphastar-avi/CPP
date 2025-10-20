@@ -47,3 +47,26 @@ public:
         return allsubs;
     }
 };
+
+// recrusive for-loop based
+class Solution {
+public:
+
+    void printsub(int index, vector<int> nums,vector<vector<int>>& res, vector<int> currsub){
+        res.push_back(currsub);
+
+        for(int i = index; i<nums.size(); i++){
+            currsub.push_back(nums[i]);
+            printsub(i+1, nums, res, currsub);
+            currsub.pop_back();
+        }
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        vector<vector<int>> res;
+        vector<int> currsub;
+
+        printsub(0, nums, res, currsub);
+        return res;
+    }
+};
