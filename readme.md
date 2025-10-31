@@ -1,5 +1,1 @@
-cpp.
-
-
-
-
+clang++ .cpp 
