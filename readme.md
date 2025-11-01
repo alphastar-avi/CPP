@@ -1,1 +1,1 @@
-clang++ .cpp -o daily.cpp
+clang++ .cpp -o daily.cpp //
