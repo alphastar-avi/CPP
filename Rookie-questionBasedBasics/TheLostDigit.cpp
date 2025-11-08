@@ -58,6 +58,16 @@ Explanation
 
 Here, A = {2, 3, 4} and N = 4. The sequence should contain the numbers from 1 to 4 but the number 1 is missing from array A. Hence, 1 is returned as the output.*/
 
+// XOR
+int missing(vector<int> &nums, int n) {
+    int total = n * (n + 1) / 2;
+    int sum = 0;
+    for (int x : nums) sum += x;
+    return total - sum;
+}
+
+
+//normal
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -82,3 +92,4 @@ int main() {
     cout << missing(nums, n) << endl;
     return 0;
 }
+
