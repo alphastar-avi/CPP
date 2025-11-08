@@ -7,10 +7,8 @@ int main(){
     vector<int> nums={2,34,4,6,2,1,3,5,1,3};
     
     for(int i=0; i<nums.size(); i++){
-        int mini = INT_MAX;
         for(int j=i; j<nums.size(); j++){
-            mini = min(nums[i],nums[j]);
-            if(nums[i]>mini){
+            if(nums[i]>nums[j]){
                 swap(nums[i],nums[j]);
             }
 

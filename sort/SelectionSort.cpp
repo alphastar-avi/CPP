@@ -1,23 +1,18 @@
-#include<iostream>
-#include<vector>
-
-using namespace std;
-
 int main(){
-    vector<int> nums={2,34,4,6,2,1,3,5,1,3};
-    
-    for(int i=0; i<nums.size(); i++){
-        int mini = INT_MAX;
-        for(int j=i; j<nums.size(); j++){
-            mini = min(nums[i],nums[j]);
-            if(nums[i]>mini){
-                swap(nums[i],nums[j]);
+    vector<int> arr = {1,4,2,7,3,8,1,9,1,2,4};
+    for(int i = 0; i < arr.size() - 1; i++){
+        int index = i;
+        for(int j = i + 1; j < arr.size(); j++){
+            if(arr[index] > arr[j]){
+                index = j;
             }
-
         }
+        int temp = arr[i];
+        arr[i] = arr[index];
+        arr[index] = temp;
     }
-    for(int i : nums){
+
+    for(int i : arr){
         cout << i << " ";
     }
-
-}
+}  
