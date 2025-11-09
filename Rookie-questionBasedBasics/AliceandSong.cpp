@@ -60,6 +60,33 @@ Explanation
 Here, the given collection of songs is "bcdefgfedcb" and K is 5. As we can see, there is no favourite song i.e 'a'. Therefore 0 is returned as the output.*/
 
 //Sliding window
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string S; 
+    int K;
+    cin >> S >> K;  // Input: string and playlist length
+
+    int countA = 0, maxA = 0;
+
+    // Count 'a' in the first window of size K
+    for (int i = 0; i < K && i < S.size(); ++i)
+        if (S[i] == 'a') countA++;
+
+    maxA = countA;  // first maximum
+
+    // Now slide the window
+    for (int i = K; i < S.size(); ++i) {
+        if (S[i - K] == 'a') countA--;  // remove left char
+        if (S[i] == 'a') countA++;      // add right char
+        if (countA > maxA) maxA = countA;  // update max
+    }
+
+    cout << maxA;  // print the result
+    return 0;
+}
 
 
 
