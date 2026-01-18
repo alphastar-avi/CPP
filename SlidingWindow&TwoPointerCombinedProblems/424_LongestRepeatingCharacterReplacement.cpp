@@ -12,10 +12,10 @@ public:
                 freq[s[l] - 'A']--;
                 l++;
             }
-
+        
             maxLen = max(maxLen, r - l + 1);
         }
-
+    
         return maxLen;
     }
 };
