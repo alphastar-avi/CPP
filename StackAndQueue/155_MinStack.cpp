@@ -4,7 +4,7 @@ public:
     MinStack() {
         
     }
-    
+
     void push(int val) {
        if(ros.empty()){
         ros.push({val,val});

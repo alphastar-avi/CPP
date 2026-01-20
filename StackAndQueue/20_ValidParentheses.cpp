@@ -21,7 +21,7 @@ public:
         }
         return ros.empty();
     }
-};
+};  
 //OR
 class Solution {
 public:
