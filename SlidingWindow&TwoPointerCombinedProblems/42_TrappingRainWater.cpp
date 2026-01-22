@@ -20,7 +20,9 @@ public:
         int total=0;
         // cout << premax.size() << " " << suffmax.size();
         for(int i=0; i<n; i++){
+            if(height[i]<premax[i] && height[i]<sufmax[i]){
             total += min(premax[i],suffmax[i]) - height[i];
+            }
         }
 
         return total;
